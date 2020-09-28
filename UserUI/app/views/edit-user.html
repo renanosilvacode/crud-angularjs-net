@@ -1,0 +1,41 @@
+﻿<div class="col-md-12">
+
+    <form class="form-horizontal" id="form-edit-user">
+        <fieldset>
+            <legend>Edit User</legend>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="user-name">Id</label>
+                <div class="col-md-2">
+                    <input id="user-name" name="user-name" type="text" placeholder="" class="form-control input-md" ng-model="user.id" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="user-name">Name</label>
+                <div class="col-md-4">
+                    <input id="user-name" name="user-name" type="text" placeholder="your user name" class="form-control input-md" ng-model="user.name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="user-age">Age</label>
+                <div class="col-md-2">
+                    <input id="user-age" name="user-age" class="form-control input-md" placeholder="how old are you" type="text" ng-model="user.age">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="client-email">Address</label>
+                <div class="col-md-4">
+                    <input id="user-address" name="user-address" class="form-control input-md" placeholder="where do you live?" type="text" ng-model="user.address"
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="btn-save"></label>
+                <div class="col-md-4">
+                    <button id="btn-save" name="btn-save" class="btn btn-success" ng-click="updateUser()">Save</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
