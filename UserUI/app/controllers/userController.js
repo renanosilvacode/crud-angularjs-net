@@ -56,7 +56,7 @@
     }
 
     $scope.backToList = function () {
-        $location.path("/users");
+        $location.path("users");
     }
 
 });
