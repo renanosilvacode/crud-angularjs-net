@@ -1,6 +1,6 @@
 ﻿<div class="col-md-12">
     <!-- LIST -->
-    <div class=col-md-12>
+    <div class=col-md-12 ng-init="getUsers()">
 
         <form id="form-list-user">
             <legend>List of users</legend>
@@ -20,14 +20,14 @@
 
                 </thead>
                 <tbody id="form-list-user-body">
-                    <tr>
-                        <td>1</td>
-                        <td>Renan</td>
-                        <td>34</td>
-                        <td>Rua Continental</td>
+                    <tr ng-repeat="user in users">
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.age}}</td>
+                        <td>{{user.address}}</td>
                         <td>
-                            <a title="view this user" class="btn btn-default btn-sm " href="#!edit-user"> <i class="glyphicon glyphicon-eye-open text-primary"></i> </a>
-                            <a title="edit this user" class="btn btn-default btn-sm " href="#!edit-user"> <i class="glyphicon glyphicon-edit text-primary"></i> </a>
+                            <a title="view this user" class="btn btn-default btn-sm " href="#!edit-user/{{user.id}}"> <i class="glyphicon glyphicon-eye-open text-primary"></i> </a>
+                            <a title="edit this user" class="btn btn-default btn-sm " href="#!edit-user/{{user.id}}"> <i class="glyphicon glyphicon-edit text-primary"></i> </a>
                         </td>
                     </tr>
                 </tbody>

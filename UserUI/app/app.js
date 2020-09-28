@@ -10,7 +10,7 @@ app.config(function ($routeProvider) {
             templateUrl: "views/users.html",
             controller: "userController"
         })
-        .when("/edit-user", {
+        .when("/edit-user/:id", {
             templateUrl: "views/edit-user.html",
             controller: "userController"
         })

@@ -1,7 +1,8 @@
-﻿app.controller("userController", function ($scope, $http) {
+﻿app.controller("userController", function ($scope, $http, $routeParams) {
 
     $scope.users = [];
-    $scope.errorMessage
+    $scope.user;
+    $scope.errorMessage;
     $scope.BaseUrlApi = "https://localhost:5001/api/"
 
     $scope.getUsers = function () {
@@ -17,10 +18,11 @@
         });
     }
 
-    $scope.getUser = function (id) {
+    $scope.getUser = function () {
+        let idUser = $routeParams.id;
         $http({
             method: "GET",
-            url: $scope.BaseUrlApi + "users/" +  id
+            url: $scope.BaseUrlApi + "users/" + idUser
         }).then(function mySuccess(response) {
             $scope.user = response.data;
             console.log($scope.user);
@@ -33,7 +35,7 @@
         $http({
             method: "POST",
             url: $scope.BaseUrlApi + "users",
-            data: JSON.stringify(user)
+            data: JSON.stringify($scope.user)
         }).then(function mySuccess(response) {
             $scope.user = response.data;
             console.log($scope.user);
@@ -42,11 +44,11 @@
         });
     }
 
-    $scope.updateUser = function (user) {
+    $scope.updateUser = function () {
         $http({
             method: "PUT",
             url: $scope.BaseUrlApi + "users",
-            data: JSON.stringify(user)
+            data: JSON.stringify($scope.user)
         }).then(function mySuccess(response) {
             $scope.user = response.data;
             console.log($scope.user);
