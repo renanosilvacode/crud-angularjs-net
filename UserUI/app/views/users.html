@@ -5,8 +5,14 @@
         <form id="form-list-user">
             <legend>List of users</legend>
 
+            <div class="pull-left">
+                <label class="col-md-4 control-label" for="user-name">Search for a User</label>
+                <div class="col-md-6">
+                    <input id="user-name" name="user-name" type="text" placeholder="" class="form-control input-md" ng-model="searchUser">
+                </div>
+            </div>
             <div class="pull-right">
-                <a class="btn btn-default-btn-xs btn-success" href="#!user"><i class="glyphicon glyphicon-plus" ></i> New User</a>
+                <a class="btn btn-default-btn-xs btn-success" href="#!user"><i class="glyphicon glyphicon-plus"></i> New User</a>
             </div>
             <table class="table table-bordered table-condensed table-hover">
                 <thead>
@@ -20,13 +26,13 @@
 
                 </thead>
                 <tbody id="form-list-user-body">
-                    <tr ng-repeat="user in users">
+                    <tr ng-repeat="user in users | filter:searchUser">
                         <td>{{user.id}}</td>
                         <td>{{user.name}}</td>
                         <td>{{user.age}}</td>
                         <td>{{user.address}}</td>
                         <td>
-                            <a title="view this user" class="btn btn-default btn-sm " href="#!edit-user/{{user.id}}"> <i class="glyphicon glyphicon-eye-open text-primary"></i> </a>
+                            <a title="view this user" class="btn btn-default btn-sm " href="#!view-user/{{user.id}}"> <i class="glyphicon glyphicon-eye-open text-primary"></i> </a>
                             <a title="edit this user" class="btn btn-default btn-sm " href="#!edit-user/{{user.id}}"> <i class="glyphicon glyphicon-edit text-primary"></i> </a>
                         </td>
                     </tr>

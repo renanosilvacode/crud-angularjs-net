@@ -1,4 +1,4 @@
-﻿app.controller("userController", function ($scope, $http, $routeParams) {
+﻿app.controller("userController", function ($scope, $http, $routeParams, $location) {
 
     $scope.users = [];
     $scope.user;
@@ -12,7 +12,6 @@
             url: $scope.BaseUrlApi + "users"
         }).then(function mySuccess(response) {
             $scope.users = response.data;
-            console.log($scope.users);
         }, function myError(response) {
             $scope.errorMessage = response.statusText;
         });
@@ -25,7 +24,6 @@
             url: $scope.BaseUrlApi + "users/" + idUser
         }).then(function mySuccess(response) {
             $scope.user = response.data;
-            console.log($scope.user);
         }, function myError(response) {
             $scope.errorMessage = response.statusText;
         });
@@ -38,7 +36,7 @@
             data: JSON.stringify($scope.user)
         }).then(function mySuccess(response) {
             $scope.user = response.data;
-            console.log($scope.user);
+            this.backToList();
         }, function myError(response) {
             $scope.errorMessage = response.statusText;
         });
@@ -51,11 +49,14 @@
             data: JSON.stringify($scope.user)
         }).then(function mySuccess(response) {
             $scope.user = response.data;
-            console.log($scope.user);
+            this.backToList();
         }, function myError(response) {
             $scope.errorMessage = response.statusText;
         });
     }
 
+    $scope.backToList = function () {
+        $location.path("/users");
+    }
 
 });

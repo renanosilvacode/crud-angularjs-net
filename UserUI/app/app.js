@@ -14,6 +14,10 @@ app.config(function ($routeProvider) {
             templateUrl: "views/edit-user.html",
             controller: "userController"
         })
+        .when("/view-user/:id", {
+            templateUrl: "views/view-user.html",
+            controller: "userController"
+        })
         .when("/user", {
             templateUrl: "views/user.html",
             controller: "userController"

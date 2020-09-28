@@ -27,7 +27,7 @@ namespace UserAPI.Service
 
         public User UpdateUser(User user)
         {
-            int indexUserToBeUpdated = users.FindIndex(user => user.Id == user.Id);
+            int indexUserToBeUpdated = users.FindIndex(u => u.Id == user.Id);
 
             if (indexUserToBeUpdated != -1)
                 users[indexUserToBeUpdated] = user;
