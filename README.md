@@ -22,7 +22,7 @@
 
 ## 💻 Tecnologies and Packages
 
-Este projeto contém as seguintes tecnologias:
+This project contains the following stacks:
 
 #### 🔨 Tecnologies
 
